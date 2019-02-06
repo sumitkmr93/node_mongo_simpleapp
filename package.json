@@ -1,0 +1,19 @@
+{
+  "name": "node_sk",
+  "version": "1.0.0",
+  "description": "A very simple node applicaton",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumitkmr93/node_sk.git"
+  },
+  "author": "Sumit Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumitkmr93/node_sk/issues"
+  },
+  "homepage": "https://github.com/sumitkmr93/node_sk#readme"
+}
