@@ -5,5 +5,5 @@ app.get('/',(req,res)=>{
   res.sendFile(__dirname+'/index.html');
 })
 
-app.listen(3012);
-console.log("Listening on 3012");
+app.listen(8080);
+console.log("Listening on 8080");
