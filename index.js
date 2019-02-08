@@ -7,7 +7,7 @@ const db = mongoclient.MongoClient;
 const url = "mongodb+srv://sumit:sumit@cluster0-nevqf.mongodb.net/test?retryWrites=true";
 app.set('view engine','ejs');
 
-console.log("Server Running on http://localhost:8002");
+console.log("Server Running on http://localhost:8080");
 
 //HomePage
 app.get("/",(req,res)=>{
@@ -101,4 +101,4 @@ app.get('/searchresults',urlencoded_parser,(req,res)=>{
             }
         });
 
-app.listen(8002);
+app.listen(8080);
