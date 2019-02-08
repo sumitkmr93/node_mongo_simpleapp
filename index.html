@@ -2,15 +2,115 @@
 
 <html>
     <head>
-        <title>Basic Node App</title>
+        <title>Filter All</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+              $.ajax({
+                url: '/getcategorylist',
+                type: 'GET',
+                success: function(response){    // response contains json object in i
+                    var options = "<option selected>Select a Category</option>";
+                    for(var i = 0;i < response.length; i++)
+                    {
+                        options += "<option value='" + response[i] + "'>" +
+                        response[i] + "</option>";
+                    }
+                    $("#category").html(options);
+                }
+              });
+              $.ajax({
+                url: '/getyears',
+                type: 'GET',
+                success: function(response){    // response contains json object in i
+                    var options = "<option selected>Select an Year</option>";
+                    for(var i = 0;i < response.length; i++)
+                    {
+                        options += "<option value='" + response[i] + "'>" +
+                        response[i] + "</option>";
+                    }
+                    options += "<option value='" + '0' + "'>" +
+                        "All" + "</option>";
+                    $("#year").html(options);
+                }
+              });
+            });
+    function getresults(){
+      $.ajax({
+        url: "/searchresults?category=" + $("#category").val() +"&year=" + $("#year").val(),
+        type: 'GET',
+        success: function(response){
+            //table.data.reload();
+            var options ="<thead><tr><th>Product</th><th>Total Quantity</th></tr></thead><tbody>";  // response contains json object in i
+            if(response.length > 0){
+              for(var i = 0;i < response.length; i++)
+              {
+                  options += "<tr><td>" + response[i]._id + "</td><td>"+
+                  response[i].Total_Quantity + "</td></tr>";
+              }
+              $("#results").html(options);
+            }
+        }
+      });
+    }
+
+    function getallresults(){
+      $.ajax({
+        url: "/searchallresults?year=" + $("#year").val(),
+        type: 'GET',
+        success: function(response){
+            //table.data.reload();
+            var options ="<thead><tr><th>Product</th><th>Total Quantity</th></tr></thead><tbody>";  // response contains json object in i
+
+                if(response.length > 0){
+              for(var i = 0;i < response.length; i++)
+              {
+                  options += "<tr><td>" + response[i]._id + "</td><td>"+
+                  response[i].Total_Quantity + "</td></tr>";
+              }
+
+              $("#results").html(options);
+            }
+        }
+      });
+    }
+        </script>
     </head>
-    <body style="background-color:olive">
-        <h2>A simple node application HomePage</h2>
-        <p>This application demonstrates deploying a node application.</p>
-        <p>Added another paragraph and changed it</p>
+    <body>
+        <div class="jumbotron">
+      <h2 align="center">Code Challenge II - AJAX </h2>
+      </div>
 
-        <p><h2>Added this paragraph after configuring Jenkins</h2></p>
+      <hr/>
+  <div class="container" >
+          <div class="form-group">
+              <label for="product">Select a Category:</label>
+              <select class="form-control" id="category" name="category" onchange="">
+              </select>
+            </div>
 
+
+            <div class="form-group">
+              <label for="year">Enter Year:</label>
+              <select class="form-control" id="year" name="year" >
+            </select>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary"  onclick="getresults()">Quantity Aggregate of all Products (Filtered on category & year)</button> &nbsp;
+            <button type="submit" class="btn btn-success"  onclick="getallresults()">Quantity Aggregate of all Products (Filtered on year)</button>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table table-bordered table-striped" id="results">
+
+                    </tbody>
+
+              </table></div>
 
 
 
