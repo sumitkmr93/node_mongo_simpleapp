@@ -4,7 +4,7 @@ const body_parser = require('body-parser');
 const urlencoded_parser = body_parser.urlencoded({extended:false});
 const mongoclient = require("mongodb")
 const db = mongoclient.MongoClient;
-const url = "mongodb+srv://sumit:sumit@cluster0-nevqf.mongodb.net/test?retryWrites=true";
+const url = ""; //Enter MongoDB connection details here
 app.set('view engine','ejs');
 
 console.log("Server Running on http://localhost:8080");
