@@ -1,12 +1,14 @@
-# Simple Node Application connecting to MongoDB
+# Simple Node Application connecting to MongoDB Atlas
 
 ### About the application.
-* This application connects and fetches data from MongoDB Cloud and displays on the Homepage.
+* This application connects and fetches data from MongoDB Atlas and displays on the Homepage.
 
 ### Instructions for testing the app after cloning.
-1. you need to create an account in MongoDB cloud and host a database.
+1. Create a database with a [free account](https://www.mongodb.com/cloud/atlas) in MongoDB Atlas.
+2. Follow the [steps](https://docs.atlas.mongodb.com/getting-started/) to successfully deploy a cluster and configure the IP to access MongoDB. 
+3. Change the connection details in the code.
 
-### Technologies
+### Technologies Used
 | FrontEnd | BackEnd | Database  |
 | ------------- |:----------:| -----:|
 | HTML     | Node JS | MongoDB CLoud |
