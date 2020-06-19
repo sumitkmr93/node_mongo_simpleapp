@@ -9,7 +9,7 @@
 3. Change the connection details in the code.
 
 ### Technologies Used
-| FrontEnd | BackEnd | Database  |
+| Frontend | Backend | Database  |
 | ------------- |:----------:| -----:|
 | HTML     | Node JS | MongoDB CLoud |
 | JavaScript     |     |    |
